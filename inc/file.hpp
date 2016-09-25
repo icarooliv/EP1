@@ -6,38 +6,27 @@ using namespace std;
 
 class File : public Image {
 
-typedef struct header{ 
-	string magicnumber;         
-	int width;         
-	int height;         
-	int max;
-	}Header;
-
 private:
 
-	ifstream *infile; //arq entrada
-	ofstream *outfile; //arq copia
+	fstream infile; //arq entrada
 	string header;
 	int position;
-	
+	long ptr;
+
 public:
 	File();
-	File(ifstrem *infile, ofstream *outfile);
 	~File();
 
-	header getHeader(header head1);
-	void setHeader();
+	string getNamein();
+    void setNamein(string namein);
 
-	ifstream *getInfile();
-	void setInfile(ifstrem *infile);
+    string getNameout();
+    void setNameout(string nameout);
 
-	ifstream *getOutfile();
-	void setOutfile(ofstream *outfile);	
+	void openFile(string namein, fstream &infile);
 
-	void getData(){
-		
-	header getHeader(header head1);
-	void setHeader();
+	void closeFile();
 
-
+	long getPtr();
+	void setPtr();
 #endif  

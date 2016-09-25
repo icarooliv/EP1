@@ -11,36 +11,6 @@
 
    } 
 
-   string Image::getNamein(){
-   }
-   void Image::setNamein(string namein){
-      string namein;
-
-      cout << "Digite o nome da imagem a ser filtrada" << endl;
-
-      cin >> namein;
-
-      namein = "doc/" + namein + ".txt"; //mudar para ppm
-
-      this namein->namein;
-   }
-
-
-   string Image::getNameout(){
-      this nameout->nameout;
-   } 
-   void Image::setNameout(string nameout){
-      string nameout;
-
-      cout << "Digite o nome da imagem filtrada" << endl;
-
-      cin >> nameout;
-
-      nameout = "doc/" + nameout + ".txt"; //mudar para ppm
-
-      this->nameout=nameout;
-   }
-
 
    string Image::getMagicnumber(){
       return magicnumber;
@@ -82,5 +52,10 @@
       this->max=max;
    }
 
-
-
+   long File::getPtr(){
+   return ptr;
+   }
+   
+   void File::setPtr(long ptr){
+   this ptr->ptr;
+   }
