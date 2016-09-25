@@ -6,6 +6,13 @@ using namespace std;
 
 class File : public Image {
 
+typedef struct header{ 
+	string magicnumber;         
+	int width;         
+	int height;         
+	int max;
+	}Header;
+
 private:
 
 	ifstream *infile; //arq entrada
@@ -18,6 +25,9 @@ public:
 	File(ifstrem *infile, ofstream *outfile);
 	~File();
 
+	header getHeader(header head1);
+	void setHeader();
+
 	ifstream *getInfile();
 	void setInfile(ifstrem *infile);
 
@@ -25,11 +35,9 @@ public:
 	void setOutfile(ofstream *outfile);	
 
 	void getData(){
+		
+	header getHeader(header head1);
+	void setHeader();
 
-void getHeader(){
 
-}
-void setHeader(){
-
-}
 #endif  

@@ -12,41 +12,41 @@
    } 
 
    string Image::getNamein(){
-      cout <<"\tInforme o diretório do arquivo de entrada: ";
-         string name;
-         cin >> name; 
-      nameIn = "doc/" + name + ".txt"; 
-   return nameIn;
+   }
+   void Image::setNamein(string namein){
+      string namein;
+
+      cout << "Digite o nome da imagem a ser filtrada" << endl;
+
+      cin >> namein;
+
+      namein = "doc/" + namein + ".txt"; //mudar para ppm
+
+      this namein->namein;
    }
 
-   void Image::setNamein(string nameIn){
-      this nameIn->nameIn;
-   }
 
    string Image::getNameout(){
-      cout << "\tInforme o diretório do arquivo de saída: ";
-      cin >> nameOut; //atribui nome
-      if (nameOut == name){
-         do{
-            cout << "nome invalido. digite novamente: " << endl;
-            cin >> nameOut; 
-         } while(nameOut==name); //continua pedindo nome caso o nome de saida seja igual ao de entrada  
-      }
+      this nameout->nameout;
+   } 
+   void Image::setNameout(string nameout){
+      string nameout;
 
-      nameOut = "doc/" + nameOut + ".txt"; //concatena string
-      return nameOut;
-   }
-   
-   void Image::setNameout(string nsameOut){
-      this->nameOut=nameOut;
+      cout << "Digite o nome da imagem filtrada" << endl;
+
+      cin >> nameout;
+
+      nameout = "doc/" + nameout + ".txt"; //mudar para ppm
+
+      this->nameout=nameout;
    }
 
 
-   string Image::getIdentify(){
-      return identify;
+   string Image::getMagicnumber(){
+      return magicnumber;
    }
-   void Image::setIdentify(string identify){
-      this->identify=identify;
+   void Image::setIdentify(string magicnumber){
+      this->magicnumber=magicnumber;
    }
 
 
@@ -84,30 +84,3 @@
 
 
 
-
-
-/*
-   unsigned char** Image::getRed(){
-      return red;
-   }
-
-   void setPixel(unsigned char **red){
-      this red->red;
-   }
-
-
-   unsigned char** Image::getGreen(){
-      return green;
-   }
-   void setGreen (unsigned char **green){
-      this green->green;
-   }
-
-
-   unsigned char** Image::getBlue(){
-      return blue;
-   }
-   void setBlue (unsigned char **blue){
-      this blue->blue;
-   }
-*/

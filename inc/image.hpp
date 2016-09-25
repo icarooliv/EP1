@@ -17,8 +17,8 @@
    class Image {
       
    private:
-      string nameIn, nameOut;
-      string identify; //identify p/ conferir se é ppm/P6 -- header p pegar o cabeçalho
+      string namein, nameout;
+      string magicnumber; //identify p/ conferir se é ppm/P6 -- header p pegar o cabeçalho
       unsigned char **red, **green, **blue; //range de 0 ate 255 por isso o unsigned 
       int height, width, max; //
 
@@ -28,13 +28,13 @@
       Image (string identify, string ignore, int height, int width, int max);
    protected: 
       string getNamein();
-      void setNamein(string nameIn);
+      void setNamein(string namein);
 
       string getNameout();
-      void setNameout(string nameOut);
+      void setNameout(string nameout);
 
-      string getIdentify();
-      void setIdentify(string identify);
+      string getMagicnumber();
+      void setMagicnumber(string magicnumber);
 
       string getIgnore();
       void setIgnore(string ignore);
