@@ -6,11 +6,11 @@
 using namespace std;
 
 class Filter {
+private: 
+	int size;
 protected:
-   Filter();  // Metodo Construtor
-   ~Filter(); // Metodo Destrutor
-
-   void setApply();
+virtual   Filter();  // Metodo Construtor
+virtual  ~Filter(); // Metodo Destrutor
+virtual void setApply();
 };
-
 #endif

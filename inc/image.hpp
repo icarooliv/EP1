@@ -1,46 +1,54 @@
-#ifndef IMAGE_HPP
-#define IMAGE_HPP
+   #ifndef IMAGE_HPP
+   #define IMAGE_HPP
 
-#include <string>
+   #include <iostream>
+   #include <string>
+   #include <fstream>
+   #include <sstream>
 
-using namespace std;
+   using namespace std;
 
-class Image {
-   // Atributos
-   
-private:
-   string name;
-   char identify;
-   int width;
-   int height;
-   int intensity;
-   string copia;
+   typedef struct Pixels{
+       unsigned char red[][];
+       unsigned char green[][];
+       unsigned char blue[][];
+      } Pixels;
 
-public:
-   Image();  // Metodo Construtor
-   ~Image(); // Metodo Destrutor
-   
-   string getName();
-   void setName(string name);
+   class Image {
+      
+   private:
+      string nameIn, nameOut;
+      string identify; //identify p/ conferir se é ppm/P6 -- header p pegar o cabeçalho
+      unsigned char **red, **green, **blue; //range de 0 ate 255 por isso o unsigned 
+      int height, width, max; //
 
-   char getIdentify();
-   void setIdentify(char identify);
+   public:
+      Image();  
+      virtual ~Image(); 
+      Image (string identify, string ignore, int height, int width, int max);
+   protected: 
+      string getNamein();
+      void setNamein(string nameIn);
 
-protected: 
+      string getNameout();
+      void setNameout(string nameOut);
 
-   int getWidth();
-   void setWidth(int width);
-   
-   int getHeight();
-   void setHeight(int height);
+      string getIdentify();
+      void setIdentify(string identify);
 
-   int getIntensity();
-   void setIntensity(int intensity);
+      string getIgnore();
+      void setIgnore(string ignore);
 
-private:
+      unsigned char **getPixel;
 
-   void setCopiaImagem();
-   
-};
+      int getHeight();
+      void setHeight(int height);
 
-#endif
+      int getWidth();
+      void setWidth(int width);
+
+      int getMax();
+      void setMax(int inten);
+
+
+   #endif
