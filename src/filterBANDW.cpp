@@ -1,15 +1,10 @@
-#include <iostream>
-#include <string>
+/*#include <iostream>
+#include "filterBANDW.hpp"
 #include <fstream>
-#include "filter.hpp"
-using namespace std;
+#include <cstdlib>
+#include "image.hpp"
 
-Filter::Filter() {
+void Bandw::setFilter(string name, int width, int height, int max, unsigned char** r, unsigned char** g, unsigned char ** b) {
 
 }
-
-Filter::~Filter(){
-} 
-
-Filter::setApply(){
-}
+*/

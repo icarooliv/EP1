@@ -1,17 +1,18 @@
-#ifndef FILTERPOLAR_HPP
+/*#ifndef FILTERPOLAR_HPP
 #define FILTERPOLAR_HPP
 #include "filter.hpp"
-
+#include "image.hpp"
 #include <string>
-
+#include <cstdlib>
 using namespace std;
 
 class Polar : public Filter {
-protected:
-   Filter();  // Metodo Construtor
-   ~Filter(); // Metodo Destrutor
+public:
+   Polar(){}; 
+   ~Polar(){};
 
-   void setApply();
+   void setFilter(string name, int width, int height, int max, unsigned char ** r, unsigned char ** g, unsigned char **b);
 };
 
 #endif
+*/
