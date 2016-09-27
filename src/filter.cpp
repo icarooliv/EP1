@@ -1,14 +1,6 @@
 #include <iostream>
-#include "image.hpp"
+#include "filter.hpp"
 
-Filter::Filter() {
-    outfile << image.getMagicnumber() << endl;     
-    outfile << image.getWidth() << " " << image.getHeight() << endl;     
-    outfile << image.getMax() << endl; 
+void Filter::setFilter(){
 }
 
-Filter::~Filter(){
-} 
-
-Filter::setApply(){
-}
