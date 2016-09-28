@@ -1,69 +1,71 @@
-/*#include "filterMEDIAN.hpp"
+#include "filterMEDIAN.hpp"
 #include "image.hpp"
 
-Median::Median(){
-	
-}
-
-void Median::setFilter(string name, int width, int height, int mai, unsigned char** r, unsigned char** g, unsigned char ** b) {
+void Median::setFilter(string name, int width, int height, int max, unsigned char** r, unsigned char** g, unsigned char ** b) {
 	fstream outfile;
-	
+
 	int size;
+	cout << "Indique o tamanho da máscara 3, 5 ou 7: " << endl;
 
-	cout << "Informe a dimensão da máscara do filtro (infome um valor positivo!):" << endl;
-	
-	cin >> size;
 
-	if(size < 0){
-	do{
-		cout << "Insira valor positivo"<<endl;
-		cin >> size;	
-	}while(size < 0);
-	
-	size = size/2;
-	
 	outfile.open(name, ios::binary | ios::app | ios::out);
 
-	int auxR = 0, auxG = 0, auxB = 0, aux = 0;
+	cin >> size;
 
-	for(int i=0; i<height; i++){
-		for(int j=0; j<width; j++){
+	switch (size){
+		case(3):
+		size = 3;
+		break;
+		case(5):
+		size = 5;
+		break;
+		case(7):
+		size = 7;
+		break;
+	}
 
-			for(int x=-size; x<=size; x++){
-				for(int y=-size; y<=size; y++){
 
-					if((i+a) >= 0 && (a+i) < height){
+	int i=0;
+	int auxr, auxg, auxb, aux;
+	while(i<height){
+		for(int j=0; j<width; j++) {
+			auxr = 0;
+			auxg = 0;
+			auxb = 0;
+			for(int x=-size; x<=size; x++) {
+				for(int y=-size; y<=size;y++){
+					if((i+x)>=0 && (x+i) < height){
 						if((j+y)>=0 && (j+y) < width){
-							auxR += (int)r[i+a][j+y];
-							auxG += (int)g[i+a][j+y];
-							auxB += (int)b[i+a][j+y];
-							aux++;
+							auxr += (int)r[i+x][j+y];
+							auxg += (int)g[i+x][j+y];
+							auxb += (int)b[i+x][j+y];
+							aux+=1;
 						}
 					}
-
 				}
 			}
-			auxR = auxR/aux;
-			auxG = auxG/aux;
-			auxB = auxB/aux;
 
-			r[i][j] = (unsigned char)auxR;
-			g[i][j] = (unsigned char)auxG;
-			b[i][j] = (unsigned char)auxB;
+			auxr = auxr/aux;
+			auxg = auxg/aux;
+			auxb = auxb/aux;
 
+			r[i][j] = (unsigned char)auxr;
 			outfile.write((char*)&r[i][j], sizeof(unsigned char));
+			g[i][j] = (unsigned char)auxg;
 			outfile.write((char*)&g[i][j], sizeof(unsigned char));
+			b[i][j] = (unsigned char)auxb;
 			outfile.write((char*)&b[i][j], sizeof(unsigned char));
 
-			auxR = 0;
-			auxB = 0;
-			auxG = 0;
-			aux = 0; 
-
+			auxr = 0;
+			auxg = 0;
+			auxb = 0;
+			aux = 0;
 
 		}
+		i++;
 	}
 
 	outfile.close();
+
+	outfile.close();
 }
-*/

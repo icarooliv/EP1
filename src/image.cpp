@@ -170,3 +170,4 @@ Image *Image::createHeader(Image *image){
    
    return image;
 }
+

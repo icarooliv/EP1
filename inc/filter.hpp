@@ -7,10 +7,8 @@ using namespace std;
 
 class Filter {
 	public: 
-	
 	Filter(){};     
-	~Filter(){}; //thx stackoverflow
-	
+	~Filter(){}; //thx stackoverflow <3
 	virtual void setFilter();
 };
 

@@ -11,7 +11,7 @@ public:
    Polar(){}; 
    ~Polar(){};
 
-   void setFilter(string name, int width, int height, int max, unsigned char ** r, unsigned char ** g, unsigned char **b);
+   void setFilter(string name, int width, int height, int max, unsigned char** r, unsigned char** g, unsigned char** b);
 };
 
 #endif
