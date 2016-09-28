@@ -1,4 +1,4 @@
-/*#ifndef FILTERPOLAR_HPP
+#ifndef FILTERPOLAR_HPP
 #define FILTERPOLAR_HPP
 #include "filter.hpp"
 #include "image.hpp"
@@ -15,4 +15,3 @@ public:
 };
 
 #endif
-*/

@@ -1,4 +1,4 @@
-/*#ifndef FILTERBANDW_HPP
+#ifndef FILTERBANDW_HPP
 #define FILTERBANDW_HPP
 #include "filter.hpp"
 #include "image.hpp"
@@ -15,4 +15,3 @@ public:
 };
 
 #endif
-*/

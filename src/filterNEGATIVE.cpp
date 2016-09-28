@@ -1,13 +1,12 @@
-	#include <iostream>
-	#include "filterNEGATIVE.hpp"
-	#include <fstream>
-	#include <cstdlib>
-	#include "image.hpp"
+#include <iostream>
+#include "filterNEGATIVE.hpp"
+#include <fstream>
+#include <cstdlib>
+#include "image.hpp"
 
 void Negative::setFilter(string name, int width, int height, int max, unsigned char** r, unsigned char** g, unsigned char ** b) {
-	
-	fstream outfile;
 
+	fstream outfile;
 	outfile.open(name, ios::binary | ios::app | ios::out);
 
 	for(int i=0; i<height; i++){

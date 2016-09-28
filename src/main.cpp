@@ -1,39 +1,61 @@
-#include <fstream>
 #include "image.hpp"
 #include "filter.hpp"
 #include "filterNEGATIVE.hpp"
+#include "filterPOLAR.hpp"
+#include "filterBANDW.hpp"
+//#include "filterMEDIAN.hpp"
 
 using namespace std;
 
 int main(int argc, char ** argv) {
 
 	Image image;
+	image.createHeader(&image);
 
-	int height, width, max;
+	cout << " ------------------------------------------------------------  "<< endl;
+	cout << "                   MENU DE FILTROS                             "<< endl;
+	cout << "										    			        "<< endl;
+	cout << "    Digite o número correspondente para  o filtro desejado     "<< endl;
+	cout << "										    			        "<< endl;
+	cout << "   1- Negativo           2-Polarizado           3-P&B          "<< endl;
+	cout << "										    			        "<< endl;
+	cout << "	4- Media			  0 - Sair 		    			        "<< endl;
+	cout << "										    			        "<< endl;
+	cout << "										    			        "<< endl;
+	cout << " ------------------------------------------------------------  "<< endl;
 
-	height = image.getHeight();
-	width = image.getWidth();
-	max = image.getMax();
+	int dig;
 
-	string name;
-	name = image.getNameout();
-
-
-	unsigned char** r;
-	unsigned char** g;
-	unsigned char** b;
-
-	r=image.getR();
-	g=image.getG();
-	b=image.getB();
-	
-	cout << name;
-
-	cout << "\n"<< max;
-	cout << "\n"<< width;
-	cout << "\n"<< height<<endl;
+	cin >> dig;
+	if (dig > 5 || dig < 0){
+		do {
+				cout << "Digite uma opção válida!" << endl;
+				cin >> dig;
+		}while(dig > 5 || dig < 0);
+}else{
 
 	Negative neg;
-	neg.setFilter(name, width, height, max, r, g, b);
+	Polar pol;
+	Bandw bandw;
+//	Median med;
+	
+	switch(dig){
+		case(0):
+			cout << "Saindo..." << endl;
+			return 0;
+		case(1):
+				neg.setFilter(image.getNameout(), image.getWidth(), image.getHeight(), image.getMax(), image.getR(), image.getG(), image.getB());
+
+		case(2):
+				pol.setFilter(image.getNameout(), image.getWidth(), image.getHeight(), image.getMax(), image.getR(), image.getG(), image.getB());
+		case(3):
+				bandw.setFilter(image.getNameout(), image.getWidth(), image.getHeight(), image.getMax(), image.getR(), image.getG(), image.getB());
+
+	//	case(4):
+	//			med.setFilter(image.getNameout(), image.getWidth(), image.getHeight(), image.getMax(), image.getR(), image.getG(), image.getB());
+
+			
+	} 
+}
 return 0;	
 }		 	
